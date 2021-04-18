@@ -50,8 +50,8 @@ stages:
 #    dependsOn: Tag
 #    variables:
 #      _NEXT_RELEASE_TAG: $[ stageDependencies.Tag.release.outputs['setOutputVar.versionNumber'] ]
-  pool:
-    vmImage: 'ubuntu-latest'
+    pool:
+      vmImage: 'ubuntu-latest'
   
     jobs:
       - template: ./build.yaml
