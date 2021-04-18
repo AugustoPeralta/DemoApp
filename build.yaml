@@ -35,21 +35,21 @@ jobs:
           Contents: '"Tests"'
       # publish package as artifact
 
-        - task: CopyFiles@2
-          inputs:
-            TargetFolder: "$(Build.ArtifactStagingDirectory)/functionapp"
+      - task: CopyFiles@2
+        inputs:
+          TargetFolder: "$(Build.ArtifactStagingDirectory)/functionapp"
 
-        - task: ArchiveFiles@1
-          inputs:
-            rootFolder: "$(Build.ArtifactStagingDirectory)/FunctionApp"
-            includeRootFolder: "false"
-            archiveFile: "$(Build.ArtifactStagingDirectory)/FunctionApp.zip"
+      - task: ArchiveFiles@1
+        inputs:
+          rootFolder: "$(Build.ArtifactStagingDirectory)/FunctionApp"
+          includeRootFolder: "false"
+          archiveFile: "$(Build.ArtifactStagingDirectory)/FunctionApp.zip"
 
-        - task: PublishBuildArtifacts@1
-          inputs:
-            PathtoPublish: "$(Build.ArtifactStagingDirectory)/FunctionApp.zip"
-            ArtifactName: "drop"
-            ArtifactType: "Container"
+      - task: PublishBuildArtifacts@1
+        inputs:
+          PathtoPublish: "$(Build.ArtifactStagingDirectory)/FunctionApp.zip"
+          ArtifactName: "drop"
+          ArtifactType: "Container"
 
     
   
