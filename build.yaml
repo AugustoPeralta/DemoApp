@@ -42,13 +42,13 @@ jobs:
 
       - task: ArchiveFiles@1
         inputs:
-          rootFolder: "$(Build.ArtifactStagingDirectory)/FunctionApp"
+          rootFolder: "$(Build.ArtifactStagingDirectory)/Functionapp"
           includeRootFolder: "false"
-          archiveFile: "$(Build.ArtifactStagingDirectory)/FunctionApp.zip"
+          archiveFile: "$(Build.ArtifactStagingDirectory)/Functionapp.zip"
 
       - task: PublishBuildArtifacts@1
         inputs:
-          PathtoPublish: "$(Build.ArtifactStagingDirectory)/FunctionApp.zip"
+          PathtoPublish: "$(Build.ArtifactStagingDirectory)/Functionapp.zip"
           ArtifactName: "drop"
           ArtifactType: "Container"
 
