@@ -11,13 +11,13 @@ jobs:
     displayName: QA Slot creation  
     pool:
        vmImage: 'windows-latest'   
-    steps: 
+    steps:
       - task: AzureCLI@2
         inputs:
-          azureSubscription: 'WorkDemoSusc (591cb3b2-9ae6-48d4-b103-babcec6f0b2d)'
+          azureSubscription: 'WorkDemoSusc(591cb3b2-9ae6-48d4-b103-babcec6f0b2d)'
           scriptType: 'ps'
           scriptLocation: 'inlineScript'
-          inlineScript: 'az functionapp deployment slot create --name FunctionAppAPM --resource-group functionappapm --slot QA'
+          inlineScript: 'az functionapp deployment slot create --name FunctionAppAPM --resource-group functionappapm --slot QA' 
 
   - deployment: DeployApp
     displayName: deploy Function App
