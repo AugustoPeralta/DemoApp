@@ -6,9 +6,10 @@
     "start": "func start",
     "test": "echo \"No tests yet...\"",
     "build": "echo app build",
-    "zip": "cd dist && zip -r ../build.zip ."
+    "pack": "funcpack pack ."
   },
   "dependencies": {
+    "azure-functions-pack": "^1.0.0",
     "durable-functions": "^1.4.6",
     "npm-pack-zip": "^1.2.9"
   },

@@ -25,14 +25,31 @@ jobs:
       # Run to package
       - script: yarn install
         displayName: prune dependencies
-      - script: cp -R node_modules ./dist
-        displayName: copy node modules
-      - script: yarn zip
-      # publish package as artifact
-      - task: PublishPipelineArtifact@1
-        displayName: publish package
+
+      - script: yarn pack
+      - task: DeleteFiles@1
         inputs:
-          targetPath: '$(Pipeline.Workspace)'
-          artifact: 'build.zip'
+          Contents: '"node_modules"'
+      - task: DeleteFiles@1
+        inputs:
+          Contents: '"Tests"'
+      # publish package as artifact
+
+        - task: CopyFiles@2
+          inputs:
+            TargetFolder: "$(Build.ArtifactStagingDirectory)/functionapp"
+
+        - task: ArchiveFiles@1
+          inputs:
+            rootFolder: "$(Build.ArtifactStagingDirectory)/FunctionApp"
+            includeRootFolder: "false"
+            archiveFile: "$(Build.ArtifactStagingDirectory)/FunctionApp.zip"
+
+        - task: PublishBuildArtifacts@1
+          inputs:
+            PathtoPublish: "$(Build.ArtifactStagingDirectory)/FunctionApp.zip"
+            ArtifactName: "drop"
+            ArtifactType: "Container"
+
     
   
