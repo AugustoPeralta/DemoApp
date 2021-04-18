@@ -18,13 +18,13 @@ jobs:
         displayName: build
 
       - script: npm run pack
-      
+
       - task: DeleteFiles@1
         inputs:
-          Contents: '"node_modules"'
+          Contents: "node_modules"
       - task: DeleteFiles@1
         inputs:
-          Contents: '"Tests"'
+          Contents: "Tests"
       # publish package as artifact
 
       - task: CopyFiles@2
@@ -33,13 +33,13 @@ jobs:
 
       - task: ArchiveFiles@1
         inputs:
-          rootFolder: "$(Build.ArtifactStagingDirectory)/Functionapp"
+          rootFolder: "$(Build.ArtifactStagingDirectory)/functionapp"
           includeRootFolder: "false"
-          archiveFile: "$(Build.ArtifactStagingDirectory)/Functionapp.zip"
+          archiveFile: "$(Build.ArtifactStagingDirectory)/functionapp.zip"
 
       - task: PublishBuildArtifacts@1
         inputs:
-          PathtoPublish: "$(Build.ArtifactStagingDirectory)/Functionapp.zip"
+          PathtoPublish: "$(Build.ArtifactStagingDirectory)/functionapp.zip"
           ArtifactName: "drop"
           ArtifactType: "Container"
 
