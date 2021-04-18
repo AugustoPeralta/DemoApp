@@ -21,6 +21,7 @@ jobs:
 
   - job: Package
 #    condition: and(succeeded(), eq(variables['package'], true))
+    dependsOn: Build
     steps:
       # Run to package
       - script: yarn install
