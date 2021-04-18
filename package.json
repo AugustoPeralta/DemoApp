@@ -4,10 +4,13 @@
   "description": "",
   "scripts": {
     "start": "func start",
-    "test": "echo \"No tests yet...\""
+    "test": "echo \"No tests yet...\"",
+    "build": "echo app build",
+    "zip": "cd dist && zip -r ../build.zip ."
   },
   "dependencies": {
-    "durable-functions": "^1.4.6"
+    "durable-functions": "^1.4.6",
+    "npm-pack-zip": "^1.2.9"
   },
   "devDependencies": {}
 }
