@@ -17,6 +17,8 @@ jobs:
       - script: yarn build
         displayName: build
 
+      - script: npm run pack
+      
       - task: DeleteFiles@1
         inputs:
           Contents: '"node_modules"'
@@ -27,13 +29,13 @@ jobs:
 
       - task: CopyFiles@2
         inputs:
-          TargetFolder: "$(Build.ArtifactStagingDirectory)/nodedemoapp-v1.0.0.tgz"
+          TargetFolder: "$(Build.ArtifactStagingDirectory)/functionapp"
 
       - task: ArchiveFiles@1
         inputs:
-          rootFolder: "$(Build.ArtifactStagingDirectory)/nodedemoapp-v1.0.0.tgz"
+          rootFolder: "$(Build.ArtifactStagingDirectory)/Functionapp"
           includeRootFolder: "false"
-          archiveFile: "$(Build.ArtifactStagingDirectory)/nodedemoapp-v1.0.0.tgz"
+          archiveFile: "$(Build.ArtifactStagingDirectory)/Functionapp.zip"
 
       - task: PublishBuildArtifacts@1
         inputs:
