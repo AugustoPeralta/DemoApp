@@ -16,18 +16,7 @@ jobs:
         displayName: unit testing
       - script: yarn build
         displayName: build
-      # - script: yarn start:container && yarn test-integration
-      #   displayName: IntegrationTest
 
-  - job: Package
-#    condition: and(succeeded(), eq(variables['package'], true))
-    dependsOn: Build
-    steps:
-      # Run to package
-      - script: yarn install
-        displayName: prune dependencies
-
-      - script: yarn pack
       - task: DeleteFiles@1
         inputs:
           Contents: '"node_modules"'
@@ -38,13 +27,13 @@ jobs:
 
       - task: CopyFiles@2
         inputs:
-          TargetFolder: "$(Build.ArtifactStagingDirectory)/functionapp"
+          TargetFolder: "$(Build.ArtifactStagingDirectory)/nodedemoapp-v1.0.0.tgz"
 
       - task: ArchiveFiles@1
         inputs:
-          rootFolder: "$(Build.ArtifactStagingDirectory)/Functionapp"
+          rootFolder: "$(Build.ArtifactStagingDirectory)/nodedemoapp-v1.0.0.tgz"
           includeRootFolder: "false"
-          archiveFile: "$(Build.ArtifactStagingDirectory)/Functionapp.zip"
+          archiveFile: "$(Build.ArtifactStagingDirectory)/nodedemoapp-v1.0.0.tgz"
 
       - task: PublishBuildArtifacts@1
         inputs:
