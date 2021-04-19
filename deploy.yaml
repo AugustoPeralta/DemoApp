@@ -21,7 +21,7 @@ jobs:
 
   - deployment: DeployApp
     displayName: deploy Function App
-#    dependsOn: CreateQASlot
+    dependsOn: CreateQASlot
     pool:
       vmImage: 'Ubuntu-16.04'
     environment: ${{ parameters.environment }}
