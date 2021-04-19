@@ -4,7 +4,7 @@ variables:
   - name: serviceConnectionRG
     value: 'functionappapm'
   - name: serviceConnection
-    value: 'WorkDemoSusc (591cb3b2-9ae6-48d4-b103-babcec6f0b2d)'
+    value: 'DemoSC'
   - name: environment
     value: QA
   - name: appName
