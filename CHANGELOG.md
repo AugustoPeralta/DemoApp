@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/AugustoPeralta/DemoApp/compare/v1.4.0...v1.5.0) (2021-05-04)
+
+
+### Features
+
+* change on app ([fd5fe1c](https://github.com/AugustoPeralta/DemoApp/commit/fd5fe1c7727564a703cf7c1d6b73d7bbd999479c))
+
+
+
+
+
+
 # [1.4.0](https://github.com/AugustoPeralta/DemoApp/compare/v1.3.2...v1.4.0) (2021-05-04)
 
 
