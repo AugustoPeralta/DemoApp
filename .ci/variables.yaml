@@ -10,7 +10,7 @@ variables:
   - name: appName
     value: 'DemoJsApp'
   - name: notifyUsers
-#    value: 'augusto.peralta.demo@gmail.com'  
+    value: 'augusto.peralta.demo@gmail.com'  
 #  - name: GitHubToken
 #    value: $(GITHUB-TOKEN)
 #  - name: NpmToken

@@ -58,7 +58,7 @@ stages:
     variables:
       _TAG: $[ stageDependencies.TAG.Tag.outputs['setOutputVar.Tag'] ]
     jobs:
-      - template: ./deploy.yml
+      - template: ./deploy.yaml
         parameters:
           buildLocation: $(Pipeline.Workspace)/**/*.zip
           resourceGroupName: $(serviceConnectionRG)
