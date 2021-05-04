@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.1](https://github.com/AugustoPeralta/DemoApp/compare/v1.3.0...v1.3.1) (2021-05-04)
+
+
+### Features
+
+* deployment pipeline ([08c571f](https://github.com/AugustoPeralta/DemoApp/commit/08c571f3e44a455f69a6fec6063447d8a3042303))
+
+
+
+
+
+
 # [1.3.0](https://github.com/AugustoPeralta/DemoApp/compare/v1.2.1...v1.3.0) (2021-05-04)
 
 
