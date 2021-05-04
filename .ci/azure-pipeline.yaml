@@ -29,7 +29,7 @@ stages:
     pool:
         vmImage: 'vs2017-win2016'
     jobs:
-      - template: ./versioning.yml
+      - template: ./versioning.yaml
         parameters:
           GHToken: $(GH_TOKEN)
           UserName: $(gitusername)
@@ -46,7 +46,7 @@ stages:
       vmImage: 'ubuntu-latest'
 
     jobs:
-      - template: ./build.yml
+      - template: ./build.yaml
         parameters:
           tag: $(_TAG)
           lastTag: $(_LTAG)
