@@ -5,23 +5,35 @@ parameters:
   resourceGroupName: ''
   appName: ''
   notifyUsers: ''
+  tag: ''
 
 jobs:
+  - job: CheckingChanges
+    displayName: CheckingChanges
+    continueOnError: true
+    pool:
+      vmImage: 'ubuntu-latest'
+    steps: 
+      - script: yarn run changed | grep 'app' 
+
   - job: CreateQASlot
+    dependsOn: CheckingChanges
+    condition: eq(dependencies.CheckingChanges.result,'Succeeded')
     displayName: QA Slot creation  
     pool:
        vmImage: 'windows-latest'   
     steps:
       - task: AzureCLI@2
         inputs:
-          azureSubscription: 'DemoSC'
+          azureSubscription: ${{ parameters.azureSubscription }}
           scriptType: 'ps'
           scriptLocation: 'inlineScript'
-          inlineScript: 'az functionapp deployment slot create --name FunctionAppAPM --resource-group functionappapm --slot QA'
+          inlineScript: 'az functionapp deployment slot create --name ${{ parameters.appName }} --resource-group ${{ parameters.resourceGroupName }} --slot QA'
 
   - deployment: DeployApp
     displayName: deploy Function App
     dependsOn: CreateQASlot
+    condition: eq(dependencies.CheckingChanges.result,'Succeeded')
     pool:
       vmImage: 'Ubuntu-16.04'
     environment: ${{ parameters.environment }}
@@ -65,7 +77,8 @@ jobs:
 #Temporary jobs created for manual approval until QA smoke tests are created
   - job: waitForValidation
     displayName: Wait for external validation  
-    dependsOn: DeployApp  
+    dependsOn: DeployApp
+    condition: eq(dependencies.CheckingChanges.result,'Succeeded')  
     pool: server    
     timeoutInMinutes: 4320 # job times out in 3 days
     steps:   
@@ -78,6 +91,7 @@ jobs:
   - deployment: Swap
     displayName: Swap to prod
     dependsOn: waitForValidation  
+    condition: eq(dependencies.CheckingChanges.result,'Succeeded')
     pool:
       name: Hosted VS2017
     environment: ${{ parameters.environment }}
