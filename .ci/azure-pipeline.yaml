@@ -51,19 +51,20 @@ stages:
           tag: $(_TAG)
           lastTag: $(_LTAG)
       
-#  - stage: CD
-#    displayName: Continuous Deployment
+  - stage: CD
+    displayName: Continuous Deployment
 #    condition: 
-#    dependsOn: CI 
-#    variables:
-#      _TAG: $[ stageDependencies.TAG.Tag.outputs['setOutputVar.Tag'] ]
-#    jobs:
-#      - template: ./deploy.yml
-#        parameters:
-#          buildLocation: $(Pipeline.Workspace)/**/*.zip
-#          resourceGroupName: $(serviceConnectionRG)
-#          azureSubscription: $(serviceConnection)
+    dependsOn: CI 
+    variables:
+      _TAG: $[ stageDependencies.TAG.Tag.outputs['setOutputVar.Tag'] ]
+    jobs:
+      - template: ./deploy.yml
+        parameters:
+          buildLocation: $(Pipeline.Workspace)/**/*.zip
+          resourceGroupName: $(serviceConnectionRG)
+          azureSubscription: $(serviceConnection)
 #          environment: '$(pushBranch)'
-#          appName: '$(appName)'
-#          notifyUsers: '$(notifyUsers)'
-#          tag: '$(_TAG)'
+          environment: '$(environmentStage)'
+          appName: '$(appName)'
+          notifyUsers: '$(notifyUsers)'
+          tag: '$(_TAG)'
