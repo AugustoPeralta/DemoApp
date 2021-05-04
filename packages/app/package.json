@@ -6,7 +6,8 @@
     "start": "func start",
     "test": "echo \"No tests yet###...\"",
     "ci:build": "echo app build ###",
-    "pack": "funcpack pack ."
+    "pack": "npm-pack-zip",
+    "zip": "npm run pack"
   },
   "dependencies": {
     "azure-functions-pack": "^1.0.0",
