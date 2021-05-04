@@ -55,8 +55,8 @@ jobs:
      # Build artifacts
       - script: yarn
         displayName: Install Packages
-      - script: yarn lint
-        displayName: linting
+#      - script: yarn lint
+#        displayName: linting
       # Test just the changed packages
       - script: yarn test --since ${{ parameters.tag }}
         displayName: unit testing
