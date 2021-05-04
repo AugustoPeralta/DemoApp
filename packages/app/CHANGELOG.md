@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/AugustoPeralta/DemoApp/compare/v1.3.2...v1.4.0) (2021-05-04)
+
+
+### Features
+
+* change on app ([98d354a](https://github.com/AugustoPeralta/DemoApp/commit/98d354a08408b36038d8f70be4850273e9d4461c))
+
+
+
+
+
+
 ## [1.3.2](https://github.com/AugustoPeralta/DemoApp/compare/v1.3.1...v1.3.2) (2021-05-04)
 
 **Note:** Version bump only for package nodedemoapp
