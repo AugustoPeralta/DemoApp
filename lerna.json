@@ -3,5 +3,12 @@
     "packages/*"
   ],
   "npmClient": "yarn",
-  "version": "1.4.0"
+  "version": "1.4.0",
+  "command": {
+    "version": {
+      "conventionalCommits": true,
+      "yes": true,
+      "message": "chore(release): publish %s [skip ci]"
+    }
+  }
 }
