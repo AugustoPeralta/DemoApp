@@ -12,6 +12,7 @@
   "dependencies": {
     "azure-functions-pack": "^1.0.0",
     "durable-functions": "^1.4.6",
-    "npm-pack-zip": "^1.2.9"
+    "npm-pack-zip": "^1.2.9",
+    "service": "^1.0.0"
   }
 }
