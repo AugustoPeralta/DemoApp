@@ -1,6 +1,6 @@
 {
   "name": "nodedemoapp",
-  "version": "1.6.3",
+  "version": "1.6.4",
   "description": "",
   "scripts": {
     "start": "func start",
@@ -13,6 +13,6 @@
     "azure-functions-pack": "^1.0.0",
     "durable-functions": "^1.4.6",
     "npm-pack-zip": "^1.2.9",
-    "service": "^1.0.0"
+    "service": "^1.6.4"
   }
 }
